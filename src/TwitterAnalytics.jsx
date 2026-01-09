@@ -38,7 +38,7 @@ const TwitterAnalytics = () => {
         fetchedRef.current = true;
 
         axios
-            .post("http://localhost:5000/api/twitter/profile-posts", {
+            .post("meta-youtube-instagram-face-git-e0bd81-vishwajeet1729s-projects.vercel.app/api/twitter/profile-posts", {
                 url: "https://x.com/BJP4Maharashtra"
             })
             .then(res => {
