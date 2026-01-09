@@ -28,7 +28,8 @@ ChartJS.register(
     RadialLinearScale
 );
 
-const API_URL = "https://meta-youtube-instagram-facebook-twitter.onrender.com/api/facebook/profile-posts";
+const API_BASE_URL = process.env.REACT_APP_API_URL || "https://meta-youtube-instagram-facebook-twi-khaki.vercel.app";
+const API_URL = `${API_BASE_URL}/api/facebook/profile-posts`;
 const PAGE_URL = "https://www.facebook.com/bjpformaharashtra";
 
 const FacebookAnalytics = () => {

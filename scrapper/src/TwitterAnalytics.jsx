@@ -38,7 +38,7 @@ const TwitterAnalytics = () => {
         fetchedRef.current = true;
 
         axios
-            .post("https://meta-youtube-instagram-facebook-twitter.onrender.com/api/twitter/profile-posts", {
+            .post(`${process.env.REACT_APP_API_URL || "https://meta-youtube-instagram-facebook-twi-khaki.vercel.app"}/api/twitter/profile-posts`, {
                 url: "https://x.com/BJP4Maharashtra"
             })
             .then(res => {
