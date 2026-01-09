@@ -452,6 +452,6 @@ app.post("/api/facebook/profile-posts", (req, res) => {
 /* =========================
    START SERVER
 ========================= */
-app.listen(PORT, () => {
-    console.log(`🚀 Backend running at http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`🚀 Backend running at http://localhost:${PORT}`);
+// });
