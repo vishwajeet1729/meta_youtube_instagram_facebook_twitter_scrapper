@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const app = express();
 const PORT = 5000;
-const mockData = require("../mockData");
+const mockData = require("../scrapper/mockData");
 
 /* =========================
    MIDDLEWARE
