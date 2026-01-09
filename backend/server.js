@@ -9,7 +9,16 @@ const mockData = require("../mockData");
 /* =========================
    MIDDLEWARE
 ========================= */
-app.use(cors());
+const corsOptions = {
+    // origin: "https://gen-z-games.vercel.app",
+    origin: "https://meta-youtube-instagram-face-git-e0bd81-vishwajeet1729s-projects.vercel.app",
+    credentials: true, //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+/*
+https://meta-youtube-instagram-face-git-e0bd81-vishwajeet1729s-projects.vercel.app/
+*/
 app.use(express.json());
 
 /* =========================
