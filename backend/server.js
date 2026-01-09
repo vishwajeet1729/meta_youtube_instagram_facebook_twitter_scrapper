@@ -11,7 +11,7 @@ const mockData = require("../scrapper/mockData");
 ========================= */
 const corsOptions = {
     // origin: "https://gen-z-games.vercel.app",
-    origin: "https://meta-youtube-instagram-facebook-twitter.onrender.com/",
+    origin: "https://meta-youtube-instagram-facebook-twitter.onrender.com",
     credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
 };
