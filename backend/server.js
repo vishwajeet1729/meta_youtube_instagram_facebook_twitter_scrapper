@@ -11,13 +11,13 @@ const mockData = require("../scrapper/mockData");
 ========================= */
 const corsOptions = {
     // origin: "https://gen-z-games.vercel.app",
-    origin: "https://meta-youtube-instagram-facebook-twi.vercel.app/",
+    origin: "https://meta-youtube-instagram-facebook-twitter.onrender.com/",
     credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 /*
-https://meta-youtube-instagram-facebook-twi.vercel.app//
+https://meta-youtube-instagram-facebook-twitter.onrender.com//
 */
 app.use(express.json());
 
