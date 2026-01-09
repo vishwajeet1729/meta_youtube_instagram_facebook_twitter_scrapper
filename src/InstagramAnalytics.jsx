@@ -28,7 +28,7 @@ ChartJS.register(
     RadialLinearScale
 );
 
-const API_URL = "https://meta-youtube-instagram-face-git-e0bd81-vishwajeet1729s-projects.vercel.app//api/instagram/profile-posts";
+const API_URL = "https://meta-youtube-instagram-face-git-e0bd81-vishwajeet1729s-projects.vercel.app/api/instagram/profile-posts";
 const PROFILE_URL = "https://www.instagram.com/bjp4maharashtra/";
 
 const InstagramAnalytics = () => {
