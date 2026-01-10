@@ -80,6 +80,26 @@ body {
   transform: scale(0.98);
 }
 
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f1f5f9;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  background-color: #334155;
+  border: 1px solid #475569;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.github-link:hover {
+  background-color: #475569;
+  color: #60a5fa;
+  border-color: #60a5fa;
+}
+
 /* Analytics Container */
 .analytics-container {
   padding: 2rem;

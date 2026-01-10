@@ -78,6 +78,14 @@ function App() {
           <button onClick={handleSubmit} className="submit-button">
             Submit
           </button>
+          <a
+            href="https://github.com/vishwajeet1729/meta_youtube_instagram_facebook_twitter_scrapper"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-link"
+          >
+            <span>★</span> Star on GitHub
+          </a>
         </div>
       </header>
 
