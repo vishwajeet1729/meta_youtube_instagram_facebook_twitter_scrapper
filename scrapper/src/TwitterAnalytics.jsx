@@ -24,7 +24,7 @@ ChartJS.register(
     Filler
 );
 
-const TwitterAnalytics = () => {
+const TwitterAnalytics = ({ url }) => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -37,9 +37,15 @@ const TwitterAnalytics = () => {
         if (fetchedRef.current) return;
         fetchedRef.current = true;
 
+        if (!url) {
+            setError("No profile URL provided");
+            setLoading(false);
+            return;
+        }
+
         axios
             .post(`${process.env.REACT_APP_API_URL || "https://meta-youtube-instagram-facebook-twi-khaki.vercel.app"}/api/twitter/profile-posts`, {
-                url: "https://x.com/BJP4Maharashtra"
+                url: url
             })
             .then(res => {
                 const data = Array.isArray(res.data?.data) ? res.data.data : [];
@@ -52,7 +58,7 @@ const TwitterAnalytics = () => {
             })
             .catch(() => setError("Failed to load Twitter analytics"))
             .finally(() => setLoading(false));
-    }, []);
+    }, [url]);
 
     /* ================= LAST 7 DAYS ================= */
     const last7Days = useMemo(() => {

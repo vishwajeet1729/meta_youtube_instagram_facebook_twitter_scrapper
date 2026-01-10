@@ -25,9 +25,8 @@ ChartJS.register(
     Filler
 );
 
-const YouTubeAnalytics = () => {
+const YouTubeAnalytics = ({ query }) => {
     const API_KEY = "AIzaSyCFauyGotsEz0mrDVmMTygH4LH7tqFFKQg";
-    const CHANNEL_QUERY = "BJP4MH";
 
     const [videos, setVideos] = useState([]);
     const [subscriberCount, setSubscriberCount] = useState(0);
@@ -36,11 +35,16 @@ const YouTubeAnalytics = () => {
 
     useEffect(() => {
         const fetchAnalytics = async () => {
+            if (!query) {
+                setLoading(false);
+                return;
+            }
+
             try {
                 setLoading(true);
                 // 1️⃣ Search channel
                 const searchRes = await fetch(
-                    `https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&q=${CHANNEL_QUERY}&maxResults=1&key=${API_KEY}`
+                    `https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&q=${query}&maxResults=1&key=${API_KEY}`
                 );
                 const searchData = await searchRes.json();
                 const channelId = searchData.items[0].snippet.channelId;
@@ -96,7 +100,7 @@ const YouTubeAnalytics = () => {
         };
 
         fetchAnalytics();
-    }, []);
+    }, [query]);
 
     // =======================
     // 📊 CALCULATIONS
@@ -205,7 +209,7 @@ const YouTubeAnalytics = () => {
             <header style={styles.header}>
                 <div>
                     <h1 style={styles.title}>📊 YouTube Analytics Dashboard</h1>
-                    <p style={styles.subtitle}>{channelName || CHANNEL_QUERY} • Last 7 Days Performance</p>
+                    <p style={styles.subtitle}>{channelName || query} • Last 7 Days Performance</p>
                 </div>
                 <div style={styles.headerStats}>
                     <div style={styles.headerStat}>

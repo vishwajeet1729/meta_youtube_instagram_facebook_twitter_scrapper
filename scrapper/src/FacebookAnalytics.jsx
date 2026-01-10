@@ -30,9 +30,8 @@ ChartJS.register(
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || "https://meta-youtube-instagram-facebook-twi-khaki.vercel.app";
 const API_URL = `${API_BASE_URL}/api/facebook/profile-posts`;
-const PAGE_URL = "https://www.facebook.com/bjpformaharashtra";
 
-const FacebookAnalytics = () => {
+const FacebookAnalytics = ({ url }) => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -43,6 +42,12 @@ const FacebookAnalytics = () => {
         if (fetchedRef.current) return;
         fetchedRef.current = true;
 
+        if (!url) {
+            setError("No page URL provided");
+            setLoading(false);
+            return;
+        }
+
         // Calculate dates for the last 7 days
         const end = new Date();
         const start = new Date();
@@ -52,7 +57,7 @@ const FacebookAnalytics = () => {
 
         axios
             .post(API_URL, {
-                url: PAGE_URL,
+                url: url,
                 num_of_posts: 30,
                 start_date: formatDate(start),
                 end_date: formatDate(end)
@@ -69,7 +74,7 @@ const FacebookAnalytics = () => {
             })
             .catch(() => setError("Failed to load Facebook analytics"))
             .finally(() => setLoading(false));
-    }, []);
+    }, [url]);
 
     /* ================= LAST 7 DAYS & METRICS ================= */
     const last7Days = useMemo(() => {

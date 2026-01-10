@@ -30,9 +30,8 @@ ChartJS.register(
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || "https://meta-youtube-instagram-facebook-twi-khaki.vercel.app";
 const API_URL = `${API_BASE_URL}/api/instagram/profile-posts`;
-const PROFILE_URL = "https://www.instagram.com/bjp4maharashtra/";
 
-const InstagramAnalytics = () => {
+const InstagramAnalytics = ({ url }) => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -43,8 +42,14 @@ const InstagramAnalytics = () => {
         if (fetchedRef.current) return;
         fetchedRef.current = true;
 
+        if (!url) {
+            setError("No profile URL provided");
+            setLoading(false);
+            return;
+        }
+
         axios
-            .post(API_URL, { url: PROFILE_URL, num_of_posts: 60 })
+            .post(API_URL, { url: url, num_of_posts: 60 })
             .then(res => {
                 if (Array.isArray(res.data?.data)) {
                     setPosts(res.data.data);
@@ -57,7 +62,7 @@ const InstagramAnalytics = () => {
             })
             .catch(() => setError("Failed to load Instagram analytics"))
             .finally(() => setLoading(false));
-    }, []);
+    }, [url]);
 
     /* ================= LAST 7 DAYS ================= */
     const last7Days = useMemo(() => {
