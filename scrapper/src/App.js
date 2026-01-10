@@ -20,6 +20,27 @@ const PROFILES = {
     facebook: "https://www.facebook.com/BJP4Karnataka",
     instagram: "https://www.instagram.com/bjp4karnataka/",
     youtube: "BJPKARLive"
+  },
+  bjp_tamilnadu: {
+    label: "BJP Tamil Nadu",
+    twitter: "https://x.com/BJP4TamilNadu",
+    facebook: "https://www.facebook.com/BJP4TamilNadu",
+    instagram: "https://www.instagram.com/bjp4tamilnadu/",
+    youtube: "bjp4tamilnad"
+  },
+  bjp_kerala: {
+    label: "BJP Kerala",
+    twitter: "https://x.com/BJP4Kerala",
+    facebook: "https://www.facebook.com/BJP4Keralam",
+    instagram: "https://www.instagram.com/bjp4keralam/",
+    youtube: "BJP4Keralam"
+  },
+  bjp_gujarat: {
+    label: "BJP Gujarat",
+    twitter: "https://x.com/BJP4Gujarat",
+    facebook: "https://www.facebook.com/BJP4Gujarat",
+    instagram: "https://www.instagram.com/bjp4gujarat/",
+    youtube: "BJP4Gujarat"
   }
 };
 
